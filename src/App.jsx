@@ -9,7 +9,7 @@ import "./App.css";
 
 
 // CONFIGURATION: Set your WhatsApp phone number & Image URLs here
-const WHATSAPP_NUMBER = "+23407056783414"; // Replace with your phone number (with country code)
+const WHATSAPP_NUMBER = "+2348100717074"; // Replace with your phone number (with country code)
 
 const SITE_IMAGES = {
   hero: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=1200&auto=format&fit=crop",

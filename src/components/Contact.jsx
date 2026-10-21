@@ -20,8 +20,8 @@ export default function Contact({ formData, setFormData, handleSubmitWhatsApp, s
                   💬
                 </div>
                 <div>
-                  <p className="text-xs text-slate-400 font-medium">WhatsApp Triage Line</p>
-                  <p className="text-sm font-bold text-white">{whatsappNumber}</p>
+                  <p className="text-xs text-slate-400 font-medium">Phone Number</p>
+                  <p className="text-sm font-bold text-white">07056783414</p>
                 </div>
               </div>
 
