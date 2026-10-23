@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Navbar from './components/NavBar';
 import Hero from './components/Hero';
 import Services from './components/Services';
@@ -6,19 +6,27 @@ import Testimonials from './components/Testimonials';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import "./App.css";
+import kems4 from './assets/kems4.jpg'
+import kems1 from './assets/kems1.jpg'
+import kems2 from './assets/kems2.jpg'
+import kems3 from './assets/kems3.jpg'
+import kems5 from './assets/kems5.jpg'
+import kems6 from './assets/kems6.jpg'
+import kems7 from './assets/kems7.jpg'
 
 
-// CONFIGURATION: Set your WhatsApp phone number & Image URLs here
+
+// CONFIGURATION: Set your WhatsApp phone number here
 const WHATSAPP_NUMBER = "+2348100717074"; // Replace with your phone number (with country code)
 
 const SITE_IMAGES = {
-  hero: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=1200&auto=format&fit=crop",
-  outdoorSecurity: "https://images.unsplash.com/photo-1558002038-1055907df827?q=80&w=800&auto=format&fit=crop",
-  safetyAudit: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=800&auto=format&fit=crop",
-  applianceAuto: "https://images.unsplash.com/photo-1558002038-1055907df827?q=80&w=800&auto=format&fit=crop",
-  smartSwitch: "https://images.unsplash.com/photo-1558002038-1055907df827?q=80&w=800&auto=format&fit=crop",
-  voiceIntegration: "https://images.unsplash.com/photo-1558002038-1055907df827?q=80&w=800&auto=format&fit=crop",
-  energyMonitoring: "https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?q=80&w=800&auto=format&fit=crop"
+  hero: kems6,
+  outdoorSecurity: kems5,
+  safetyAudit: kems7,
+  applianceAuto: kems3,
+  smartSwitch: kems1,
+  voiceIntegration: kems2,
+  energyMonitoring: kems4
 };
 
 const SERVICES_LIST = [
@@ -75,26 +83,26 @@ const SERVICES_LIST = [
 const REVIEWS_LIST = [
   {
     id: 1,
-    author: "Engr. Michael O.",
-    role: "Commercial Facility Manager",
+    author: "Asiapmina Mpcs",
+    role: "Satisfied Customer",
     stars: 5,
-    text: "KEMs performed a complete load management audit for our office complex. The safety compliance report was thorough and solved our constant breaker trips.",
+    text: "He's good at what he does.",
     date: "2 weeks ago"
   },
   {
     id: 2,
-    author: "Dr. Sarah T.",
-    role: "Homeowner",
+    author: "wallet money",
+    role: "Satisfied Customer",
     stars: 5,
-    text: "Exceeded expectations on our smart switch retrofitting! Clean installation, zero damage to wall paint, and voice automation works seamlessly.",
+    text: "Best engineer you deserve a 6 star",
     date: "1 month ago"
   },
   {
     id: 3,
-    author: "Chidi K.",
-    role: "Industrial Plant Supervisor",
+    author: "godswill sunday",
+    role: "Satisfied Customer",
     stars: 5,
-    text: "Top tier electrical engineering team. Highly knowledgeable in high-power appliance automation and emergency safety compliance.",
+    text: "Nice electrician",
     date: "3 months ago"
   }
 ];
@@ -119,9 +127,20 @@ export default function App() {
 
   const handleSubmitWhatsApp = (e) => {
     e.preventDefault();
-    const message = `Hello KEMS Electrical Engineering,%0A%0AI would like to request a service:%0A• *Client Name:* ${formData.name}%0A• *Phone:* ${formData.phone}%0A• *Requested Service:* ${formData.service}%0A• *Property Type:* ${formData.location}%0A• *Details:* ${formData.details || 'N/A'}`;
-    
-    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${message}`, '_blank');
+    const message = [
+      'Hello KEMS Electrical Engineering,',
+      '',
+      'I would like to request a service:',
+      `• Client Name: ${formData.name}`,
+      `• Phone: ${formData.phone}`,
+      `• Requested Service: ${formData.service}`,
+      `• Property Type: ${formData.location}`,
+      `• Details: ${formData.details || 'N/A'}`
+    ].join('\n');
+    const phoneNumber = WHATSAPP_NUMBER.replace(/\D/g, '');
+    const query = new URLSearchParams({ text: message });
+
+    window.open(`https://wa.me/${phoneNumber}?${query.toString()}`, '_blank');
   };
 
   return (
@@ -152,7 +171,6 @@ export default function App() {
           setFormData={setFormData}
           handleSubmitWhatsApp={handleSubmitWhatsApp}
           servicesList={SERVICES_LIST}
-          whatsappNumber={WHATSAPP_NUMBER}
         />
       </main>
 
