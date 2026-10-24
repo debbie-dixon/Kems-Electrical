@@ -13,7 +13,7 @@ import kems3 from './assets/kems3.jpg'
 import kems5 from './assets/kems5.jpg'
 import kems6 from './assets/kems6.jpg'
 import kems7 from './assets/kems7.jpg'
-
+import { Analytics } from "@vercel/analytics/react"
 
 
 // CONFIGURATION: Set your WhatsApp phone number here
@@ -178,6 +178,7 @@ export default function App() {
         scrollToSection={scrollToSection}
         
       />
+      <Analytics/>
 
      
     </div>
